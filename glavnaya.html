@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Каталог книг</title>
+</head>
+<body>
+    <h1>Каталог книг</h1>
+    <ul>
+        <li id="book1">Капитанская дочка <span id="availability1">3</span> из 7
+            <button onclick="decreaseAvailability('availability1')">-</button>
+            <button onclick="increaseAvailability('availability1', 7)">+</button>
+        </li>
+        <li id="book2">Дубровский <span id="availability2">7</span> из 7
+            <button onclick="decreaseAvailability('availability2')">-</button>
+            <button onclick="increaseAvailability('availability2', 7)">+</button>
+        </li>
+        <li id="book3">Сборник стихов <span id="availability3">5</span> из 6
+            <button onclick="decreaseAvailability('availability3')">-</button>
+            <button onclick="increaseAvailability('availability3', 6)">+</button>
+        </li>
+    </ul>
+
+    <script>
+        function decreaseAvailability(spanId) {
+            const span = document.getElementById(spanId);
+            let currentAvailability = parseInt(span.textContent);
+            if (currentAvailability > 0) {
+                span.textContent = currentAvailability - 1;
+            }
+        }
+
+        function increaseAvailability(spanId, total) {
+            const span = document.getElementById(spanId);
+            let currentAvailability = parseInt(span.textContent);
+            if (currentAvailability < total) {
+                span.textContent = currentAvailability + 1;
+            }
+        }
+    </script>
+</body>
+</html>
